@@ -9,8 +9,8 @@ void main() {
   runApp(const MyApp());
 
   JournalService service = JournalService();
-  service.register("Olá Mundo!");
-  // service.get();
+  // journalService.register(Journal.empty());
+  service.getAll();
   // asyncStudy();
 }
 
@@ -38,13 +38,14 @@ class MyApp extends StatelessWidget {
       routes: {
         "home": (context) => const HomeScreen(),
       },
-      onGenerateRoute: (settings) {
-        if (settings.name == "add-journal") {
-          final Journal journal = settings.arguments as Journal;
+      onGenerateRoute: (routeSettings) {
+        if (routeSettings.name == "add-journal") {
+          final Journal journal = routeSettings.arguments as Journal;
           return MaterialPageRoute(builder: (context) {
             return AddJournalScreen(journal: journal);
           });
         }
+        return null;
       },
     );
   }

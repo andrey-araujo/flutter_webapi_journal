@@ -3,10 +3,16 @@ import 'package:flutter_webapi_first_course/helpers/weekday.dart';
 import 'package:flutter_webapi_first_course/models/journal.dart';
 import 'package:flutter_webapi_first_course/services/journal_service.dart';
 
-class AddJournalScreen extends StatelessWidget {
-  AddJournalScreen({Key? key, required this.journal}) : super(key: key);
+class AddJournalScreen extends StatefulWidget {
+  const AddJournalScreen({Key? key, required this.journal}) : super(key: key);
 
   final Journal journal;
+
+  @override
+  State<AddJournalScreen> createState() => _AddJournalScreenState();
+}
+
+class _AddJournalScreenState extends State<AddJournalScreen> {
   final TextEditingController _contentController = TextEditingController();
 
   @override
@@ -14,7 +20,7 @@ class AddJournalScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            "${WeekDay(journal.createdAt.weekday).long.toLowerCase()}, ${journal.createdAt.day}  |  ${journal.createdAt.month}  |  ${journal.createdAt.year}"),
+            "${WeekDay(widget.journal.createdAt.weekday).long.toLowerCase()}, ${widget.journal.createdAt.day}  |  ${widget.journal.createdAt.month}  |  ${widget.journal.createdAt.year}"),
         actions: [
           IconButton(
             onPressed: () {
@@ -41,11 +47,12 @@ class AddJournalScreen extends StatelessWidget {
   registerJournal(BuildContext context) async {
     String content = _contentController.text;
 
-    journal.content = content;
+    widget.journal.content = content;
 
     JournalService service = JournalService();
-    bool result = await service.register(journal);
+    bool result = await service.register(widget.journal);
 
+    // ignore: use_build_context_synchronously
     Navigator.pop(context, result);
   }
 }
