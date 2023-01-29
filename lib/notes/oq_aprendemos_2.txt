@@ -1,0 +1,8 @@
+
+Configurando a API Local: Vimos que existem variáveis que envolvem a configuração e a manutenção de uma API rodando na Web, e que, para evitar transtornos, decidimos usar uma API local para nossos estudos. Essa API é a JSON-Server do Node.JS.
+
+Serviços no Flutter: Aprendemos também que é importante separar os blocos de código responsáveis pela comunicação da nossa aplicação com as APIs. Para isso, criamos uma classe chamada JournalService que gerenciará todas as nossas requisições.
+
+IP e HTTP: Na sequência entendemos um pouco de como funciona a Internet e o que são os protocolos IP e HTTP. Vimos que o IP é um protocolo que ajuda a localizar uma máquina na Web através de um endereço e uma porta. Já o HTTP é o protocolo que usamos para fazer as comunicações cliente-servidor de modo a acessar e manipular os dados que o servidor possui.
+
+Interceptadores e Loggers: Por fim, discutimos que, como a biblioteca http não nos dá uma forma interessante de fazermos um diagnóstico em tempo real das requisições e respostas que estão passando pela nossa aplicação, seria importante configurarmos uma. E foi exatamente o que fizemos usando a biblioteca http_interceptor para interceptar todas as requisições e respostas; e a logger para mostrar informações úteis de forma organizada e agradável no console.

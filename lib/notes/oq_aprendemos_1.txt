@@ -1,0 +1,4 @@
+
+Temas no Flutter: Aprendemos que, quando vamos dar continuidade a um projeto que já foi iniciado, muitas vezes precisamos fazer algumas configurações-base para que, ao final, consigamos entregar o que foi pretendido. No nosso caso, a aparência de nossa aplicação estava completamente diferente do pedido em protótipo e por isso a fizemos a alteração utilizando o ThemeData.
+
+API e REST: Vimos que, para falar sobre WebAPI, precisamos ter pelo menos uma introdução sobre o que é API e REST. Entendemos que API é uma interface que faz a ligação da comunicação entre cliente e servidor, e que REST é um conjunto de regras que regem a implementação e funcionamento das APIs que são RESTful.

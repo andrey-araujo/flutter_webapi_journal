@@ -1,0 +1,31 @@
+{
+  "learnhttp": {
+    "content": "Olá Mundo!"
+  },
+  "journals": [
+    {
+      "id": "f441b5d0-9f5f-11ed-a85f-6f448e126afd",
+      "content": "TESTANDO ESTA BOSTA DO KCT",
+      "created_at": "2023-01-19 23:03:12.439725",
+      "updated_at": "2023-01-19 23:03:12.439725"
+    },
+    {
+      "id": "afab67c0-9f66-11ed-9529-97d7511d2ce2",
+      "content": "Testando mais uma vez.",
+      "created_at": "2023-01-22 23:48:15.344601",
+      "updated_at": "2023-01-22 23:48:15.344601"
+    },
+    {
+      "id": "150f9a80-9f69-11ed-ab18-2d8b62ae41e4",
+      "content": "Aleluia está funcionando direito!",
+      "created_at": "2023-01-28 00:08:30.625661",
+      "updated_at": "2023-01-28 00:08:30.625661"
+    },
+    {
+      "id": "1a7939b0-9f6c-11ed-99b4-1b0cc38509fb",
+      "content": "Terminando o curso",
+      "created_at": "2023-01-25 00:28:32.095269",
+      "updated_at": "2023-01-25 00:28:32.095269"
+    }
+  ]
+}
