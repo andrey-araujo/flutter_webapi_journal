@@ -19,8 +19,7 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-            "${WeekDay(widget.journal.createdAt.weekday).long.toLowerCase()}, ${widget.journal.createdAt.day}  |  ${widget.journal.createdAt.month}  |  ${widget.journal.createdAt.year}"),
+        title: Text(WeekDay(widget.journal.createdAt).toString()),
         actions: [
           IconButton(
             onPressed: () {
@@ -44,15 +43,14 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
     );
   }
 
-  registerJournal(BuildContext context) async {
+  registerJournal(BuildContext context) {
     String content = _contentController.text;
 
     widget.journal.content = content;
 
     JournalService service = JournalService();
-    bool result = await service.register(widget.journal);
-
-    // ignore: use_build_context_synchronously
-    Navigator.pop(context, result);
+    service.register(widget.journal).then((value) {
+      Navigator.pop(context, value);
+    });
   }
 }
