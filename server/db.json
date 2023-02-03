@@ -26,6 +26,12 @@
       "content": "Terminando o curso",
       "created_at": "2023-01-25 00:28:32.095269",
       "updated_at": "2023-01-25 00:28:32.095269"
+    },
+    {
+      "id": "eafb1450-a35e-11ed-b5b9-d95afb16d629",
+      "content": "Olá, estou continuando o curso de web API!!!",
+      "created_at": "2023-02-02 01:03:12.692213",
+      "updated_at": "2023-02-02 01:03:12.692213"
     }
   ]
 }

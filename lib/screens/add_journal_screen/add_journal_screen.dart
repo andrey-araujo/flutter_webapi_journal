@@ -3,23 +3,19 @@ import 'package:flutter_webapi_first_course/helpers/weekday.dart';
 import 'package:flutter_webapi_first_course/models/journal.dart';
 import 'package:flutter_webapi_first_course/services/journal_service.dart';
 
-class AddJournalScreen extends StatefulWidget {
-  const AddJournalScreen({Key? key, required this.journal}) : super(key: key);
+class AddJournalScreen extends StatelessWidget {
+  AddJournalScreen({Key? key, required this.journal}) : super(key: key);
 
   final Journal journal;
 
-  @override
-  State<AddJournalScreen> createState() => _AddJournalScreenState();
-}
-
-class _AddJournalScreenState extends State<AddJournalScreen> {
   final TextEditingController _contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    _contentController.text = journal.content;
     return Scaffold(
       appBar: AppBar(
-        title: Text(WeekDay(widget.journal.createdAt).toString()),
+        title: Text(WeekDay(journal.createdAt).toString()),
         actions: [
           IconButton(
             onPressed: () {
@@ -46,10 +42,10 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
   registerJournal(BuildContext context) {
     String content = _contentController.text;
 
-    widget.journal.content = content;
+    journal.content = content;
 
     JournalService service = JournalService();
-    service.register(widget.journal).then((value) {
+    service.register(journal).then((value) {
       Navigator.pop(context, value);
     });
   }
