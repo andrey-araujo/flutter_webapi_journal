@@ -32,6 +32,18 @@
       "content": "Olá, estou continuando o curso de web API!!!",
       "created_at": "2023-02-02 01:03:12.692213",
       "updated_at": "2023-02-02 01:03:12.692213"
+    },
+    {
+      "id": "dd2f1840-a36c-11ed-91b8-a5a8fe4ceeff",
+      "content": "Adicionando uma nota para editar.",
+      "created_at": "2023-02-02 02:43:42.840657",
+      "updated_at": "2023-02-02 02:43:42.840657"
+    },
+    {
+      "id": "6dd92c80-a36f-11ed-ba07-e5a82e164119",
+      "content": "Oi",
+      "created_at": "2023-01-30 02:54:08.174244",
+      "updated_at": "2023-01-30 02:54:08.174244"
     }
   ]
 }

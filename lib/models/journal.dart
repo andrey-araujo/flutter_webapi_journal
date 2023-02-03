@@ -20,7 +20,7 @@ class Journal {
         updatedAt = DateTime.now();
 
   Journal.fromMap(Map<String, dynamic> json)
-      : id = json["id"] ?? 0,
+      : id = json["id"],
         content = json["content"],
         createdAt = DateTime.parse(json["created_at"]),
         updatedAt = DateTime.parse(json["updated_at"]);
