@@ -26,7 +26,7 @@ class AddJournalScreen extends StatelessWidget {
             onPressed: () {
               registerJournal(context);
             },
-            icon: const Icon(Icons.abc),
+            icon: const Icon(Icons.playlist_add_check_rounded),
           )
         ],
       ),

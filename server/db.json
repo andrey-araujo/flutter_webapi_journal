@@ -34,22 +34,10 @@
       "updated_at": "2023-02-02 01:03:12.692213"
     },
     {
-      "id": "dd2f1840-a36c-11ed-91b8-a5a8fe4ceeff",
-      "content": "Adicionando uma nota para editar.",
-      "created_at": "2023-02-02 02:43:42.840657",
-      "updated_at": "2023-02-02 02:43:42.840657"
-    },
-    {
       "id": "0fffb900-a4d5-11ed-97aa-031a6e7e71c6",
       "content": "Testando essa merda ",
       "created_at": "2023-01-30 21:21:52.943739",
       "updated_at": "2023-01-30 21:21:52.943739"
-    },
-    {
-      "id": "3d3710a0-a4dd-11ed-ac12-b5556b595da9",
-      "content": "Oi",
-      "created_at": "2023-01-30 22:42:22.165994",
-      "updated_at": "2023-01-30 22:42:22.165994"
     }
   ]
 }
