@@ -4,6 +4,11 @@
       "email": "andrey_teste@hotmail.com",
       "password": "$2a$10$hc8fDcnAIcARZDPPjRUIh.PsOvrepO4rUDFWTuwiX2YYS0hYy3WMu",
       "id": 1
+    },
+    {
+      "email": "andrey2@hotmail.com",
+      "password": "$2a$10$BhR.EVKDgeDLG/UP5nB5O.MLoW6aeo4ecZL9w8bWq1aCl6mULiMk2",
+      "id": 2
     }
   ],
   "learnhttp": {

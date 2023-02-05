@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
@@ -12,7 +13,7 @@ class AuthService {
     interceptors: [LoggingInterceptor()],
   );
 
-  login({required String email, required String password}) async {
+  Future<bool> login({required String email, required String password}) async {
     http.Response response = await client.post(
       Uri.parse('${url}login'),
       body: {
@@ -22,9 +23,23 @@ class AuthService {
     );
 
     if (response.statusCode != 200) {
+      String content = json.decode(response.body);
+      switch (content) {
+        case "Cannot find user":
+          throw UserNotFoundException();
+      }
       throw HttpException(response.body);
     }
+
+    return true;
   }
 
-  register() {}
+  register({required String email, required String password}) async {
+    http.Response response = await client.post(
+      Uri.parse('${url}register'),
+      body: {'email': email, 'password': password},
+    );
+  }
 }
+
+class UserNotFoundException {}
