@@ -1,5 +1,11 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "andrey_teste@hotmail.com",
+      "password": "$2a$10$hc8fDcnAIcARZDPPjRUIh.PsOvrepO4rUDFWTuwiX2YYS0hYy3WMu",
+      "id": 1
+    }
+  ],
   "learnhttp": {
     "content": "Olá Mundo!"
   },
