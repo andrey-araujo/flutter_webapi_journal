@@ -9,6 +9,16 @@
       "email": "andrey2@hotmail.com",
       "password": "$2a$10$BhR.EVKDgeDLG/UP5nB5O.MLoW6aeo4ecZL9w8bWq1aCl6mULiMk2",
       "id": 2
+    },
+    {
+      "email": "andrey__teste@hotmail.com",
+      "password": "$2a$10$tsW2Ru0bSKDHugvj8ucpNu33GDiETYPNeWgs6mS1noAMYT99DijeG",
+      "id": 3
+    },
+    {
+      "email": "andrey3@hotmail.com",
+      "password": "$2a$10$o6gvXFLh5Wuq1ZGu0kGxs.lbj7i59uMya8pDvFzebk6/GgJs11dNi",
+      "id": 4
     }
   ],
   "learnhttp": {
