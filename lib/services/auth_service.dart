@@ -3,9 +3,7 @@ import 'dart:io';
 
 import 'package:flutter_webapi_first_course/services/web_client.dart';
 import 'package:http/http.dart' as http;
-import 'package:http_interceptor/http/intercepted_client.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'http_interceptors.dart';
 
 class AuthService {
   http.Client client = WebClient().client;
@@ -62,9 +60,6 @@ class AuthService {
     prefs.setString("accessToken", token);
     prefs.setString("email", email);
     prefs.setInt("id", id);
-
-    String? tokenSalvo = prefs.getString("accessToken");
-    print(tokenSalvo);
   }
 }
 
