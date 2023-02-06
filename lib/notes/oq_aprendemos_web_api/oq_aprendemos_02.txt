@@ -1,0 +1,18 @@
+    Instalando o JSON Server Auth: 
+        Vimos que, da forma que estava, nosso
+        servidor não estava preparado para lidar com autenticação de pessoas
+        usuárias. Para habilitar essa funcionalidade instalamos JSON Server Auth.
+
+    Entendendo o Fluxo de Autorização: 
+        Conversamos a respeito de que cada
+        API terá especificidades na forma de autenticar e autorizar pessoas
+        usuárias, mas que o sistema que usa Usuário - Senha - Token, ou apenas
+        Autenticação com Token, é muito comum e é o que usaremos com o JSON
+        Server Auth.
+
+    Postman: 
+        Conhecemos o Postman, uma ferramenta de execução e
+        detalhamento de requisições e respostas. Ela é muito útil para fazermos
+        operações de testes de forma rápida para nossa API, alterando livremente
+        as informações enviadas (como cabeçalhos e corpo) e analisando
+        cuidadosamente a resposta recebida.
