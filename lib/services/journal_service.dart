@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter_webapi_first_course/models/journal.dart';
 import 'package:http/http.dart' as http;
@@ -30,10 +31,13 @@ class JournalService {
       body: jsonJournal,
     );
 
-    if (response.statusCode == 201) {
-      return true;
+    if (response.statusCode != 201) {
+      if (json.decode(response.body) == "jwt expired") {
+        throw TokenNotValidException();
+      }
+      throw HttpException(response.body);
     }
-    return false;
+    return true;
   }
 
   Future<bool> edit(String id, Journal journal, String token) async {
@@ -48,11 +52,14 @@ class JournalService {
       body: jsonJournal,
     );
 
-    if (response.statusCode == 200) {
-      return true;
+    if (response.statusCode != 200) {
+      if (json.decode(response.body) == "jwt expired") {
+        throw TokenNotValidException();
+      }
+      throw HttpException(response.body);
     }
 
-    return false;
+    return true;
   }
 
   Future<bool> delete(String id, String token) async {
@@ -61,24 +68,27 @@ class JournalService {
       headers: {"Authorization": "Bearer $token"},
     );
 
-    if (response.statusCode == 200) {
-      return true;
+    if (response.statusCode != 200) {
+      if (json.decode(response.body) == "jwt expired") {
+        throw TokenNotValidException();
+      }
+      throw HttpException(response.body);
     }
 
-    return false;
+    return true;
   }
 
-  Future<List<Journal>> getAll({
-    required String id,
-    required String token,
-  }) async {
+  Future<List<Journal>> getAll(
+      {required String id, required String token}) async {
     http.Response response = await client.get(
         Uri.parse("${url}users/$id/journals"),
         headers: {"Authorization": "Bearer $token"});
 
     if (response.statusCode != 200) {
-      //TODO: Criar uma exceção personalizada.
-      throw Exception();
+      if (json.decode(response.body) == "jwt expired") {
+        throw TokenNotValidException();
+      }
+      throw HttpException(response.body);
     }
 
     List<Journal> list = [];
@@ -92,3 +102,5 @@ class JournalService {
     return list;
   }
 }
+
+class TokenNotValidException implements Exception {}
