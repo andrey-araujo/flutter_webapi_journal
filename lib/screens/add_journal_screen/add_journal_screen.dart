@@ -1,31 +1,38 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_webapi_first_course/helpers/weekday.dart';
 import 'package:flutter_webapi_first_course/models/journal.dart';
 import 'package:flutter_webapi_first_course/services/journal_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class AddJournalScreen extends StatefulWidget {
-  const AddJournalScreen({Key? key, required this.journal}) : super(key: key);
+import '../../helpers/logout.dart';
+import '../commom/exception_dialog.dart';
 
+class AddJournalScreen extends StatelessWidget {
   final Journal journal;
+  final bool isEditing;
 
-  @override
-  State<AddJournalScreen> createState() => _AddJournalScreenState();
-}
+  AddJournalScreen({
+    Key? key,
+    required this.journal,
+    required this.isEditing,
+  }) : super(key: key);
 
-class _AddJournalScreenState extends State<AddJournalScreen> {
   final TextEditingController _contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    _contentController.text = journal.content;
     return Scaffold(
       appBar: AppBar(
-        title: Text(WeekDay(widget.journal.createdAt).toString()),
+        title: Text(WeekDay(journal.createdAt).toString()),
         actions: [
           IconButton(
             onPressed: () {
               registerJournal(context);
             },
-            icon: const Icon(Icons.check),
+            icon: const Icon(Icons.playlist_add_check_rounded),
           )
         ],
       ),
@@ -44,13 +51,48 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
   }
 
   registerJournal(BuildContext context) {
-    String content = _contentController.text;
+    SharedPreferences.getInstance().then(
+      (prefs) {
+        String? token = prefs.getString("accessToken");
+        if (token != null) {
+          String content = _contentController.text;
 
-    widget.journal.content = content;
+          journal.content = content;
 
-    JournalService service = JournalService();
-    service.register(widget.journal).then((value) {
-      Navigator.pop(context, value);
-    });
+          JournalService service = JournalService();
+          if (isEditing) {
+            service.register(journal, token).then((value) {
+              Navigator.pop(context, value);
+            }).catchError(
+              (error) {
+                logout(context);
+              },
+              test: (error) => error is TokenNotValidException,
+            ).catchError(
+              (error) {
+                var innerError = error as HttpException;
+                showExceptionDialog(context, content: innerError.message);
+              },
+              test: (error) => error is HttpException,
+            );
+          } else {
+            service.edit(journal.id, journal, token).then((value) {
+              Navigator.pop(context, value);
+            }).catchError(
+              (error) {
+                logout(context);
+              },
+              test: (error) => error is TokenNotValidException,
+            ).catchError(
+              (error) {
+                var innerError = error as HttpException;
+                showExceptionDialog(context, content: innerError.message);
+              },
+              test: (error) => error is HttpException,
+            );
+          }
+        }
+      },
+    );
   }
 }
