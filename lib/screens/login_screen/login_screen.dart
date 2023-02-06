@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -102,6 +103,15 @@ class LoginScreen extends StatelessWidget {
           });
         }
       });
-    }, test: ((error) => error is UserNotFoundException));
+    }, test: ((error) => error is UserNotFoundException)).catchError(
+      (error) {
+        showExceptionDialog(
+          context,
+          content:
+              "O servidor não está disponível no momento, tente daqui alguns minutos!",
+        );
+      },
+      test: (error) => error is TimeoutException,
+    );
   }
 }
