@@ -14,6 +14,11 @@
       "email": "andrey3@hotmail.com",
       "password": "$2a$10$tsW2Ru0bSKDHugvj8ucpNu33GDiETYPNeWgs6mS1noAMYT99DijeG",
       "id": 3
+    },
+    {
+      "email": "andrey4@hotmail.com",
+      "password": "$2a$10$zsRJpH3gFCLx1h1qkRimD.ygjm7fmhqwZk.eMJVM4k01gGHrF49ym",
+      "id": 4
     }
   ],
   "learnhttp": {
